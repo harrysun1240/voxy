@@ -551,7 +551,7 @@ public class IrisVoxyRenderPipelineData {
                 int sampler = ts.sampler.getAsInt();
                 if (sampler != -1) {
                     glBindSampler(unit, sampler);
-                }//TODO: might need to bind sampler 0
+                } else { glBindSampler(unit, 0); }//Reset to default sampler so stale sampler state isn't reused
             }
         };
         return new ImageSet(builder.toString(), bindingFunction);
